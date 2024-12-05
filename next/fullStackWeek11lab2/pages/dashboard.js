@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
@@ -30,9 +30,14 @@ const Dashboard = () => {
     <div className="container">
       <div className="dashboardHeader">
         <h1 className="heading">Task Dashboard</h1>
-        <Link href="/tasks/new">
-          <button className="button">+ Add New Task</button>
-        </Link>
+        <div className="buttonGroup">
+          <Link href="/tasks/new">
+            <button className="button">+ Add New Task</button>
+          </Link>
+          <Link href="/settings">
+            <button className="button buttonSecondary">Settings</button>
+          </Link>
+        </div>
       </div>
       <div className="cardContainer">
         {tasks.map((task) => (

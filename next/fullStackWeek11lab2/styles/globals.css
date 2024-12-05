@@ -211,4 +211,132 @@
   background-color: #218838;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-color: #f9f9f9; /* Default light background */
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Heading for the settings page */
+.heading {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Settings group styling */
+.settingsGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Form label and select styling */
+.formLabel {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.formSelect {
+  width: 150px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Light theme */
+.light {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* Dark theme */
+.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Settings container */
+.settingsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-color: var(--bg-color, #f9f9f9); /* Dynamic background based on theme */
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Heading styling */
+.heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-color, #333);
+  margin-bottom: 20px;
+}
+
+/* Settings group styling */
+.settingsGroup {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+
+/* Form label styling */
+.formLabel {
+  font-size: 1rem;
+  color: var(--text-color, #333);
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Dropdown (select) styling */
+.formSelect {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+/* Button styling */
+.button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Light mode variables */
+.light {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+}
+
+/* Dark mode variables */
+.dark {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+}
+
 

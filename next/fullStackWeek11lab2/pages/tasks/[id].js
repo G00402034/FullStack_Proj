@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+
 const TaskDetails = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -36,12 +37,16 @@ const TaskDetails = () => {
       <div className="taskCard">
         <h1 className="taskTitle">{task.title}</h1>
         <div className="taskMeta">
-          <span>Priority: {task.priority}</span>
-          <span>Status: {task.status}</span>
+          <p>
+            <span className="metaLabel">Priority:</span> {task.priority}
+          </p>
+          <p>
+            <span className="metaLabel">Status:</span> {task.status}
+          </p>
         </div>
         <p className="taskDescription">{task.description}</p>
         <p className="taskMeta">
-          Due Date: {new Date(task.dueDate).toLocaleDateString()}
+          <span className="metaLabel">Due Date:</span> {new Date(task.dueDate).toLocaleDateString()}
         </p>
         <div className="buttonGroup">
           <Link href={`/tasks/edit/${id}`}>
@@ -60,3 +65,6 @@ const TaskDetails = () => {
 };
 
 export default TaskDetails;
+
+
+

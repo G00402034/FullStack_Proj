@@ -1,42 +1,50 @@
-/* Main container styling for task details or editing */
+/* Task details container styling */
 .taskContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
-    background-color: #f9f9f9; /* Slightly lighter background */
+    background-color: #f9f9f9;
     padding: 20px;
-    font-family: Arial, sans-serif;
   }
   
-  /* Card styling for task details */
+  /* Task card styling */
   .taskCard {
-    background-color: #fff;
+    background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
     width: 100%;
     max-width: 600px; /* Limit width for readability */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
   
-  /* Heading for task title */
+  /* Task title styling */
   .taskTitle {
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 10px;
     color: #333;
+    margin-bottom: 10px;
   }
   
-  /* Task metadata (e.g., priority, due date) */
+  /* Task metadata styling */
   .taskMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Add spacing between metadata lines */
     font-size: 1rem;
     color: #555;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: space-between; /* Align metadata elements */
+  }
+  
+  /* Metadata labels */
+  .metaLabel {
+    font-weight: bold;
+    color: #333;
   }
   
   /* Task description styling */
@@ -44,88 +52,20 @@
     font-size: 1rem;
     line-height: 1.5;
     color: #666;
-    margin-bottom: 20px;
-  }
-  
-  /* Form styling for editing tasks */
-  .editForm {
-    width: 100%;
-    max-width: 600px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .formGroup {
     margin-bottom: 15px;
   }
   
-  .formLabel {
-    font-size: 1rem;
-    color: #444;
-    margin-bottom: 5px;
-    display: block;
-  }
-  
-  .formInput,
-  .formTextarea,
-  .formSelect {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  .formInput:focus,
-  .formTextarea:focus,
-  .formSelect:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
-  }
-  
-  /* Button group for form actions */
+  /* Button group */
   .buttonGroup {
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-  
-  .button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .button:hover {
-    background-color: #0056b3;
-  }
-  
-  .buttonSecondary {
-    background-color: #6c757d; /* Gray for secondary actions */
-  }
-  
-  .buttonSecondary:hover {
-    background-color: #5a6268; /* Darker gray */
+    justify-content: flex-start;
+    gap: 10px; /* Space between buttons */
   }
   
   /* Responsive Design */
   @media (max-width: 768px) {
-    .taskContainer {
-      padding: 10px;
-    }
-  
-    .taskCard,
-    .editForm {
-      width: 90%; /* Shrink for smaller screens */
+    .taskCard {
+      width: 90%; /* Reduce width on smaller screens */
     }
   
     .taskTitle {
@@ -133,7 +73,7 @@
     }
   
     .taskMeta {
-      flex-direction: column; /* Stack meta info vertically */
+      font-size: 0.9rem;
     }
   }
   
