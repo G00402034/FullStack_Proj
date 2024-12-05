@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import HamMenu from '../components/HamMenu';
+import HamMenu from '../components/HamMenu.js';
 
 const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
@@ -46,6 +46,34 @@ const Dashboard = () => {
     }
   };
 
+  const changeTaskStatus = async (taskId, status) => {
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tasks/${taskId}/status`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ status }),
+      });
+      if (!res.ok) throw new Error('Failed to update status');
+      const updatedTask = await res.json();
+
+      if (status === 'Completed') {
+        // Call deleteTask to remove from database and state
+        await deleteTask(taskId);
+      } else {
+        // Update the task's status in the local state
+        setTasks((prevTasks) =>
+          prevTasks.map((task) =>
+            task._id === taskId ? { ...task, status: updatedTask.status } : task
+          )
+        );
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const toggleDropdown = (taskId) => {
     setOpenTaskMenu(openTaskMenu === taskId ? null : taskId);
   };
@@ -54,7 +82,8 @@ const Dashboard = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className={`dashboardContainer ${theme}`}> {/* Apply theme to the container */}
+    <div className={`dashboardContainer ${theme}`}>
+      {/* Apply theme to the container */}
       <div className="dashboardHeader">
         <h1 className="heading">Task Dashboard</h1>
         <HamMenu /> {/* Reimplemented HamMenu component */}
@@ -67,29 +96,43 @@ const Dashboard = () => {
               <p className="cardDescription">{task.description}</p>
               <p className="cardMeta">Priority: <strong>{task.priority}</strong></p>
               <p className="cardMeta">Due: {new Date(task.dueDate).toLocaleDateString()}</p>
-              <div className="dropdownContainer">
-                <button
-                  className="button"
-                  onClick={() => toggleDropdown(task._id)}
+              <div className="buttonGroup">
+                {/* Actions Dropdown */}
+                <div className="dropdownContainer">
+                  <button
+                    className="button"
+                    onClick={() => toggleDropdown(task._id)}
+                  >
+                    Actions
+                  </button>
+                  {openTaskMenu === task._id && (
+                    <div className="dropdownMenu">
+                      <Link href={`/tasks/${task._id}`}>
+                        <button className="dropdownItem">View Details</button>
+                      </Link>
+                      <Link href={`/tasks/edit/${task._id}`}>
+                        <button className="dropdownItem">Edit</button>
+                      </Link>
+                      <button
+                        className="dropdownItem"
+                        onClick={() => deleteTask(task._id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                {/* Status Dropdown */}
+                <select
+                  className="button buttonSelect"
+                  value={task.status}
+                  onChange={(e) => changeTaskStatus(task._id, e.target.value)}
                 >
-                  Actions
-                </button>
-                {openTaskMenu === task._id && (
-                  <div className="dropdownMenu">
-                    <Link href={`/tasks/${task._id}`}>
-                      <button className="dropdownItem">View Details</button>
-                    </Link>
-                    <Link href={`/tasks/edit/${task._id}`}>
-                      <button className="dropdownItem">Edit</button>
-                    </Link>
-                    <button
-                      className="dropdownItem"
-                      onClick={() => deleteTask(task._id)}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                )}
+                  <option value="Pending">Pending</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Completed">Completed</option>
+                </select>
               </div>
             </div>
           ))

@@ -30,7 +30,7 @@ router.get('/:id', async (req, res) => {
 // Create a new task
 router.post('/', async (req, res) => {
   try {
-    const { title, description, dueDate, priority, collaborators } = req.body;
+    const { title, description, dueDate, priority } = req.body;
 
     // Validate required fields
     if (!title || !dueDate) {
@@ -55,7 +55,7 @@ router.post('/', async (req, res) => {
 // Update a task
 router.put('/:id', async (req, res) => {
   try {
-    const { title, description, dueDate, priority, collaborators, status } = req.body;
+    const { title, description, dueDate, priority, status } = req.body;
 
     // Validate required fields
     if (!title || !dueDate) {
@@ -64,7 +64,7 @@ router.put('/:id', async (req, res) => {
 
     const updatedTask = await Task.findByIdAndUpdate(
       req.params.id,
-      { title, description, dueDate, priority, collaborators, status },
+      { title, description, dueDate, priority, status },
       { new: true, runValidators: true }
     );
 
@@ -76,6 +76,35 @@ router.put('/:id', async (req, res) => {
   } catch (err) {
     console.error('Error updating task:', err.message);
     res.status(400).json({ error: 'Failed to update task: ' + err.message });
+  }
+});
+
+// Update the status of a task
+router.patch('/:id/status', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    // Validate the status value
+    const validStatuses = ['Pending', 'In Progress', 'Completed'];
+    if (!validStatuses.includes(status)) {
+      return res.status(400).json({ error: 'Invalid status value' });
+    }
+
+    const updatedTask = await Task.findByIdAndUpdate(
+      id,
+      { status },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedTask) {
+      return res.status(404).json({ error: 'Task not found.' });
+    }
+
+    res.status(200).json(updatedTask);
+  } catch (err) {
+    console.error('Error updating status:', err.message);
+    res.status(500).json({ error: 'Failed to update status: ' + err.message });
   }
 });
 

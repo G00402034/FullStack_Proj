@@ -469,9 +469,129 @@ body {
   padding: 10px 15px;
   font-size: 1rem;
   cursor: pointer;
+  font-family: Arial, sans-serif;
 }
+
 
 .dropdownItem select {
   width: 100%;
 }
 
+.buttonSelect {
+  padding: 10px;
+  font-size: 1rem;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #ffffff;
+  transition: background-color 0.2s ease-in-out;
+  font-family: Arial, sans-serif;
+}
+
+
+.buttonSelect:hover {
+  background-color: #f1f1f1;
+}
+
+.banner {
+  background-color: #444d44;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.bannerNav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.bannerLink {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+  font-family: Arial, sans-serif;
+}
+
+
+.bannerLink:hover {
+  color: #f1f1f1;
+}
+
+
+
+/* Main container styling */
+.taskDetailsContainer {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Title styling */
+.taskDetailsTitle {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Metadata and description styling */
+.taskDetailsMeta {
+  margin-bottom: 15px;
+}
+
+.taskDetailsMeta span {
+  display: block;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Description styling */
+.taskDetailsDescription {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  padding-left: 15px;
+  border-left: 4px solid #007bff;
+}
+
+/* Buttons container */
+.taskDetailsButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Buttons styling */
+.taskDetailsButton {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.taskDetailsButton:hover {
+  background-color: #0056b3;
+}
+
+.taskDetailsButtonSecondary {
+  background-color: #6c757d;
+}
+
+.taskDetailsButtonSecondary:hover {
+  background-color: #495057;
+}

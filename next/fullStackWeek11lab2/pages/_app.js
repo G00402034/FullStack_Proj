@@ -1,9 +1,13 @@
-// Import global CSS
 import '../styles/globals.css';
-import '../styles/TaskDetails.css';
+import Banner from '../components/Banner';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <div>
+      <Banner />
+      <Component {...pageProps} />
+    </div>
+  );
 }
 
 export default MyApp;

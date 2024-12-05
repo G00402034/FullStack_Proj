@@ -29,42 +29,31 @@ const TaskDetails = () => {
     fetchTask();
   }, [id]);
 
-  if (loading) return <p className="taskContainer">Loading...</p>;
-  if (error) return <p className="taskContainer">Error: {error}</p>;
+  if (loading) return <p className="taskDetailsContainer">Loading...</p>;
+  if (error) return <p className="taskDetailsContainer">Error: {error}</p>;
 
   return (
-    <div className="taskContainer">
-      <div className="taskCard">
-        <h1 className="taskTitle">{task.title}</h1>
-        <div className="taskMeta">
-          <p>
-            <span className="metaLabel">Priority:</span> {task.priority}
-          </p>
-          <p>
-            <span className="metaLabel">Status:</span> {task.status}
-          </p>
-        </div>
-        <p className="taskDescription">{task.description}</p>
-        <p className="taskMeta">
-          <span className="metaLabel">Due Date:</span> {new Date(task.dueDate).toLocaleDateString()}
-        </p>
-        <div className="buttonGroup">
-          <Link href={`/tasks/edit/${id}`}>
-            <button className="button">Edit Task</button>
-          </Link>
-          <button
-            className="button buttonSecondary"
-            onClick={() => router.push('/dashboard')}
-          >
-            Back to Dashboard
-          </button>
-        </div>
+    <div className="taskDetailsContainer">
+      <h1 className="taskDetailsTitle">{task.title}</h1>
+      <div className="taskDetailsMeta">
+        <span>Priority: {task.priority}</span>
+        <span>Status: {task.status}</span>
+        <span>Due Date: {new Date(task.dueDate).toLocaleDateString()}</span>
+      </div>
+      <p className="taskDetailsDescription">{task.description}</p>
+      <div className="taskDetailsButtons">
+        <Link href={`/tasks/edit/${id}`}>
+          <button className="taskDetailsButton">Edit Task</button>
+        </Link>
+        <button
+          className="taskDetailsButton taskDetailsButtonSecondary"
+          onClick={() => router.push('/dashboard')}
+        >
+          Back to Dashboard
+        </button>
       </div>
     </div>
   );
 };
 
 export default TaskDetails;
-
-
-
