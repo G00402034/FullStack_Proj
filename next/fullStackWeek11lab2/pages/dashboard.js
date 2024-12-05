@@ -27,18 +27,30 @@ const Dashboard = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <ul>
+    <div className="container">
+      <div className="dashboardHeader">
+        <h1 className="heading">Task Dashboard</h1>
+        <Link href="/tasks/new">
+          <button className="button">+ Add New Task</button>
+        </Link>
+      </div>
+      <div className="cardContainer">
         {tasks.map((task) => (
-          <li key={task._id}>
-            <h3>{task.title}</h3>
-            <p>{task.description}</p>
-            <Link href={`/tasks/${task._id}`}>View Details</Link>
-          </li>
+          <div key={task._id} className="card">
+            <h3 className="cardTitle">{task.title}</h3>
+            <p className="cardDescription">{task.description}</p>
+            <p className="cardMeta">Due: {new Date(task.dueDate).toLocaleDateString()}</p>
+            <div className="buttonGroup">
+              <Link href={`/tasks/${task._id}`}>
+                <button className="button">View Details</button>
+              </Link>
+              <Link href={`/tasks/edit/${task._id}`}>
+                <button className="button buttonSecondary">Edit</button>
+              </Link>
+            </div>
+          </div>
         ))}
-      </ul>
-      <Link href="/tasks/new">Create New Task</Link>
+      </div>
     </div>
   );
 };

@@ -30,36 +30,59 @@ const CreateTask = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Create Task</h1>
-      <input
-        type="text"
-        name="title"
-        placeholder="Title"
-        value={task.title}
-        onChange={handleChange}
-        required
-      />
-      <textarea
-        name="description"
-        placeholder="Description"
-        value={task.description}
-        onChange={handleChange}
-      />
-      <select name="priority" value={task.priority} onChange={handleChange}>
-        <option value="Low">Low</option>
-        <option value="Medium">Medium</option>
-        <option value="High">High</option>
-      </select>
-      <input
-        type="date"
-        name="dueDate"
-        value={task.dueDate}
-        onChange={handleChange}
-        required
-      />
-      <button type="submit">Create Task</button>
-    </form>
+    <div className="container">
+      <form className="formContainer" onSubmit={handleSubmit}>
+        <div className="formGroup">
+          <label className="formLabel">Title</label>
+          <input
+            type="text"
+            className="formInput"
+            name="title"
+            value={task.title}
+            placeholder="Enter task title"
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="formGroup">
+          <label className="formLabel">Description</label>
+          <textarea
+            className="formTextarea"
+            name="description"
+            value={task.description}
+            placeholder="Enter task description"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="formGroup">
+          <label className="formLabel">Due Date</label>
+          <input
+            type="date"
+            className="formInput"
+            name="dueDate"
+            value={task.dueDate}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="formGroup">
+          <label className="formLabel">Priority</label>
+          <select
+            className="formSelect"
+            name="priority"
+            value={task.priority}
+            onChange={handleChange}
+          >
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+          </select>
+        </div>
+        <div className="buttonGroup">
+          <button className="button">Create Task</button>
+        </div>
+      </form>
+    </div>
   );
 };
 

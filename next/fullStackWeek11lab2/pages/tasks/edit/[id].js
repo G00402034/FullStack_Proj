@@ -1,19 +1,19 @@
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 
 const EditTask = () => {
-  const router = useRouter();
-  const { id } = router.query;
   const [task, setTask] = useState({
     title: '',
     description: '',
     priority: 'Medium',
     dueDate: '',
   });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const router = useRouter();
+  const { id } = router.query;
 
   useEffect(() => {
-    if (!id) return;
-
     const fetchTask = async () => {
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tasks/${id}`);
@@ -21,11 +21,13 @@ const EditTask = () => {
         const data = await res.json();
         setTask(data);
       } catch (err) {
-        console.error(err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchTask();
+    if (id) fetchTask();
   }, [id]);
 
   const handleChange = (e) => {
@@ -47,35 +49,66 @@ const EditTask = () => {
     }
   };
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Edit Task</h1>
-      <input
-        type="text"
-        name="title"
-        value={task.title}
-        onChange={handleChange}
-        required
-      />
-      <textarea
-        name="description"
-        value={task.description}
-        onChange={handleChange}
-      />
-      <select name="priority" value={task.priority} onChange={handleChange}>
-        <option value="Low">Low</option>
-        <option value="Medium">Medium</option>
-        <option value="High">High</option>
-      </select>
-      <input
-        type="date"
-        name="dueDate"
-        value={task.dueDate}
-        onChange={handleChange}
-        required
-      />
-      <button type="submit">Save Changes</button>
-    </form>
+    <div className="taskContainer">
+      <form className="editForm" onSubmit={handleSubmit}>
+        <div className="formGroup">
+          <label className="formLabel">Title</label>
+          <input
+            type="text"
+            name="title"
+            value={task.title}
+            className="formInput"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="formGroup">
+          <label className="formLabel">Description</label>
+          <textarea
+            name="description"
+            value={task.description}
+            className="formTextarea"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="formGroup">
+          <label className="formLabel">Due Date</label>
+          <input
+            type="date"
+            name="dueDate"
+            value={task.dueDate}
+            className="formInput"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="formGroup">
+          <label className="formLabel">Priority</label>
+          <select
+            name="priority"
+            value={task.priority}
+            className="formSelect"
+            onChange={handleChange}
+          >
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+          </select>
+        </div>
+        <div className="buttonGroup">
+          <button type="submit" className="button">Save</button>
+          <button
+            type="button"
+            className="button buttonSecondary"
+            onClick={() => router.push('/dashboard')}
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 
