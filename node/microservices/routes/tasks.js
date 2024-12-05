@@ -42,7 +42,6 @@ router.post('/', async (req, res) => {
       description,
       dueDate,
       priority,
-      collaborators,
     });
 
     const savedTask = await newTask.save();

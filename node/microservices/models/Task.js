@@ -14,8 +14,7 @@ const taskSchema = new mongoose.Schema({
     enum: ['Pending', 'In Progress', 'Completed'],
     default: 'Pending',
   },
-  collaborators: [{ type: String, default: [] }],
-  createdAt: { type: Date, default: Date.now },
+ 
 });
 
 module.exports = mongoose.model('Task', taskSchema);

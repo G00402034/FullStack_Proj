@@ -2,22 +2,24 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 const Settings = () => {
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState('light'); // Default theme
   const router = useRouter();
+
+  useEffect(() => {
+    // Fetch the theme from localStorage
+    const storedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(storedTheme); // Initialize with the stored theme
+  }, []);
 
   const handleThemeChange = (e) => {
     const newTheme = e.target.value;
     setTheme(newTheme);
-    document.body.className = newTheme;
-    localStorage.setItem('theme', newTheme);
+    document.body.className = newTheme; // Apply the theme to the body
+    localStorage.setItem('theme', newTheme); // Persist the theme in localStorage
   };
 
-  useEffect(() => {
-    document.body.className = theme;
-  }, [theme]);
-
   return (
-    <div className="settingsContainer">
+    <div className={`settingsContainer ${theme}`}>
       <h1 className="heading">Settings</h1>
       <div className="settingsGroup">
         <label className="formLabel">

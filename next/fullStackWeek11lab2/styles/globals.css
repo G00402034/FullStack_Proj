@@ -16,6 +16,7 @@
   margin-bottom: 20px;
   color: #333;
   text-align: center;
+  font-family: Arial, sans-serif;
 }
 
 /* Task cards container */
@@ -48,6 +49,7 @@
   font-size: 1.5rem;
   color: #444;
   margin-bottom: 10px;
+  font-family: Arial, sans-serif;
 }
 
 /* Card description */
@@ -56,6 +58,7 @@
   color: #666;
   margin-bottom: 15px;
   line-height: 1.5; /* Better readability */
+  font-family: Arial, sans-serif;
 }
 
 /* Card metadata (e.g., due date, priority) */
@@ -63,6 +66,7 @@
   font-size: 0.875rem;
   color: #888;
   margin-bottom: 10px;
+  font-family: Arial, sans-serif;
 }
 
 /* Card button styling */
@@ -76,6 +80,7 @@
   cursor: pointer;
   text-align: center;
   transition: background-color 0.3s;
+  font-family: Arial, sans-serif;
 }
 
 .cardButton:hover {
@@ -104,6 +109,7 @@
   color: #444;
   margin-bottom: 5px;
   display: block;
+  font-family: Arial, sans-serif;
 }
 
 .formInput, .formTextarea, .formSelect {
@@ -112,6 +118,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
+  font-family: Arial, sans-serif;
 }
 
 .formInput:focus, .formTextarea:focus, .formSelect:focus {
@@ -132,6 +139,7 @@
   margin-top: 10px;
   text-align: center;
   transition: background-color 0.3s;
+  font-family: Arial, sans-serif;
 }
 
 .button:hover {
@@ -197,6 +205,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  font-family: Arial, sans-serif;
 }
 
 .button:hover {
@@ -227,6 +236,7 @@
   font-size: 2rem;
   color: #333;
   margin-bottom: 20px;
+  font-family: Arial, sans-serif;
 }
 
 /* Settings group styling */
@@ -243,6 +253,7 @@
   font-size: 1rem;
   color: #444;
   margin-bottom: 5px;
+  font-family: Arial, sans-serif;
 }
 
 .formSelect {
@@ -251,6 +262,7 @@
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-family: Arial, sans-serif;
 }
 
 /* Light theme */
@@ -283,6 +295,7 @@
   font-weight: bold;
   color: var(--text-color, #333);
   margin-bottom: 20px;
+  font-family: Arial, sans-serif;
 }
 
 /* Settings group styling */
@@ -300,6 +313,7 @@
   color: var(--text-color, #333);
   margin-bottom: 5px;
   display: block;
+  font-family: Arial, sans-serif;
 }
 
 /* Dropdown (select) styling */
@@ -309,6 +323,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 100%;
+  font-family: Arial, sans-serif;
 }
 
 /* Button styling */
@@ -321,22 +336,142 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  font-family: Arial, sans-serif;
 }
 
 .button:hover {
   background-color: #0056b3;
 }
 
-/* Light mode variables */
+/* Global Light and Dark Theme Variables */
 .light {
   --bg-color: #ffffff;
   --text-color: #333333;
 }
 
-/* Dark mode variables */
 .dark {
   --bg-color: #121212;
   --text-color: #ffffff;
 }
 
+/* General Body Styling */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for themes */
+}
+
+/* Dashboard-specific styles */
+.dashboardContainer {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Settings-specific styles */
+.settingsContainer {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+
+/* Delete button styling */
+.buttonDanger {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #dc3545; /* Red */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-family: Arial, sans-serif;
+}
+
+.buttonDanger:hover {
+  background-color: #c82333; /* Darker red */
+}
+
+/* Dropdown container */
+.dropdownContainer {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown menu */
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 0;
+}
+
+/* Dropdown menu items */
+.dropdownItem {
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #333;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.dropdownItem:hover {
+  background-color: #f1f1f1;
+}
+
+/* Dropdown button */
+.button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-family: Arial, sans-serif;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Dropdown menu */
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 0;
+}
+
+.dropdownItem {
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.dropdownItem select {
+  width: 100%;
+}
 
