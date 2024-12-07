@@ -3,10 +3,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Adjust for scrolling content */
+  justify-content: flex-start;
   min-height: 100vh;
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5; /* Light gray background */
+  background-color: #f5f5f5;
   padding: 20px;
 }
 
@@ -19,494 +19,28 @@
   font-family: Arial, sans-serif;
 }
 
-/* Task cards container */
-.cardContainer {
-  display: flex;
-  flex-wrap: wrap; /* Allow cards to wrap to a new row */
-  gap: 20px; /* Space between cards */
-  justify-content: center; /* Center cards in the container */
-  width: 100%;
-  max-width: 1200px; /* Limit width of the grid */
-  margin-top: 20px;
-}
-
-/* Individual task card styling */
-.card {
-  width: 300px; /* Fixed width for cards */
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-/* Card title */
-.cardTitle {
-  font-size: 1.5rem;
-  color: #444;
-  margin-bottom: 10px;
-  font-family: Arial, sans-serif;
-}
-
-/* Card description */
-.cardDescription {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 15px;
-  line-height: 1.5; /* Better readability */
-  font-family: Arial, sans-serif;
-}
-
-/* Card metadata (e.g., due date, priority) */
-.cardMeta {
-  font-size: 0.875rem;
-  color: #888;
-  margin-bottom: 10px;
-  font-family: Arial, sans-serif;
-}
-
-/* Card button styling */
-.cardButton {
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.3s;
-  font-family: Arial, sans-serif;
-}
-
-.cardButton:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-}
-
-/* Form styling */
-.formContainer {
-  width: 100%;
-  max-width: 600px; /* Limit width for forms */
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-}
-
-.formGroup {
-  margin-bottom: 15px;
-  width: 100%;
-}
-
-.formLabel {
-  font-size: 1rem;
-  color: #444;
-  margin-bottom: 5px;
-  display: block;
-  font-family: Arial, sans-serif;
-}
-
-.formInput, .formTextarea, .formSelect {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-family: Arial, sans-serif;
-}
-
-.formInput:focus, .formTextarea:focus, .formSelect:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
-}
-
-/* Button styling */
-.button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #28a745; /* Green */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  text-align: center;
-  transition: background-color 0.3s;
-  font-family: Arial, sans-serif;
-}
-
-.button:hover {
-  background-color: #218838; /* Darker green on hover */
-}
-
-/* Wrapper for buttons */
-.buttonGroup {
-  display: flex;
-  flex-direction: row;
-  gap: 10px; /* Space between buttons */
-  justify-content: flex-end; /* Align buttons to the right */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .cardContainer {
-    flex-direction: column; /* Stack cards vertically on small screens */
-    align-items: center;
-  }
-
-  .formContainer {
-    width: 90%; /* Reduce form width on small screens */
-  }
-}
-
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #f3f3f3; /* Light gray */
-  border-top: 4px solid #007bff; /* Blue */
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 20px auto;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Dashboard header styling */
-.dashboardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  margin-bottom: 20px;
-}
-
-/* Button styles for the Add New Task button */
-.button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  font-family: Arial, sans-serif;
-}
-
-.button:hover {
-  background-color: #0056b3;
-}
-
-.buttonSecondary {
-  background-color: #28a745; /* Green for secondary buttons */
-}
-
-.buttonSecondary:hover {
-  background-color: #218838;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-  background-color: #f9f9f9; /* Default light background */
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-/* Heading for the settings page */
-.heading {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
-  font-family: Arial, sans-serif;
-}
-
-/* Settings group styling */
-.settingsGroup {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-/* Form label and select styling */
-.formLabel {
-  font-size: 1rem;
-  color: #444;
-  margin-bottom: 5px;
-  font-family: Arial, sans-serif;
-}
-
-.formSelect {
-  width: 150px;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-family: Arial, sans-serif;
-}
-
-/* Light theme */
-.light {
-  background-color: #ffffff;
-  color: #333333;
-}
-
-/* Dark theme */
-.dark {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-/* Settings container */
-.settingsContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-  background-color: var(--bg-color, #f9f9f9); /* Dynamic background based on theme */
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-/* Heading styling */
-.heading {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--text-color, #333);
-  margin-bottom: 20px;
-  font-family: Arial, sans-serif;
-}
-
-/* Settings group styling */
-.settingsGroup {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 300px;
-}
-
-/* Form label styling */
-.formLabel {
-  font-size: 1rem;
-  color: var(--text-color, #333);
-  margin-bottom: 5px;
-  display: block;
-  font-family: Arial, sans-serif;
-}
-
-/* Dropdown (select) styling */
-.formSelect {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  font-family: Arial, sans-serif;
-}
-
-/* Button styling */
-.button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  font-family: Arial, sans-serif;
-}
-
-.button:hover {
-  background-color: #0056b3;
-}
-
-/* Global Light and Dark Theme Variables */
-.light {
-  --bg-color: #ffffff;
-  --text-color: #333333;
-}
-
-.dark {
-  --bg-color: #121212;
-  --text-color: #ffffff;
-}
-
-/* General Body Styling */
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for themes */
-}
-
-/* Dashboard-specific styles */
+/* Dashboard container */
 .dashboardContainer {
   min-height: 100vh;
   padding: 20px;
 }
 
-/* Settings-specific styles */
-.settingsContainer {
-  min-height: 100vh;
-  padding: 20px;
-}
-
-
-/* Delete button styling */
-.buttonDanger {
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #dc3545; /* Red */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  font-family: Arial, sans-serif;
-}
-
-.buttonDanger:hover {
-  background-color: #c82333; /* Darker red */
-}
-
-/* Dropdown container */
-.dropdownContainer {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown menu */
-.dropdownMenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  min-width: 150px;
-  display: flex;
-  flex-direction: column;
-  padding: 5px 0;
-}
-
-/* Dropdown menu items */
-.dropdownItem {
-  background: none;
-  border: none;
-  padding: 10px 15px;
-  text-align: left;
-  font-size: 1rem;
-  cursor: pointer;
-  color: #333;
-  width: 100%;
-  font-family: Arial, sans-serif;
-}
-
-.dropdownItem:hover {
-  background-color: #f1f1f1;
-}
-
-/* Dropdown button */
-.button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  font-family: Arial, sans-serif;
-}
-
-.button:hover {
-  background-color: #0056b3;
-}
-
-/* Dropdown menu */
-.dropdownMenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  min-width: 150px;
-  display: flex;
-  flex-direction: column;
-  padding: 5px 0;
-}
-
-.dropdownItem {
-  background: none;
-  border: none;
-  padding: 10px 15px;
-  font-size: 1rem;
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-}
-
-
-.dropdownItem select {
-  width: 100%;
-}
-
-.buttonSelect {
-  padding: 10px;
-  font-size: 1rem;
-  color: #333;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #ffffff;
-  transition: background-color 0.2s ease-in-out;
-  font-family: Arial, sans-serif;
-}
-
-
-.buttonSelect:hover {
-  background-color: #f1f1f1;
-}
-
+/* Banner container styling */
 .banner {
-  background-color: #444d44;
+  background-color: #444d44; /* Dark green */
   color: white;
   padding: 10px 20px;
   text-align: center;
 }
 
+/* Navigation bar within the banner */
 .bannerNav {
   display: flex;
   justify-content: center;
   gap: 20px;
 }
 
+/* Links inside the banner navigation */
 .bannerLink {
   color: white;
   text-decoration: none;
@@ -515,65 +49,108 @@ body {
   font-family: Arial, sans-serif;
 }
 
-
 .bannerLink:hover {
-  color: #f1f1f1;
+  color: #f1f1f1; /* Lighter shade on hover */
 }
 
-
-
-/* Main container styling */
-.taskDetailsContainer {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
-}
-
-/* Title styling */
-.taskDetailsTitle {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
-  text-align: center;
-  font-weight: bold;
-}
-
-/* Metadata and description styling */
-.taskDetailsMeta {
-  margin-bottom: 15px;
-}
-
-.taskDetailsMeta span {
-  display: block;
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-/* Description styling */
-.taskDetailsDescription {
-  font-size: 1.1rem;
-  color: #444;
-  margin-bottom: 20px;
-  line-height: 1.6;
-  padding-left: 15px;
-  border-left: 4px solid #007bff;
-}
-
-/* Buttons container */
-.taskDetailsButtons {
+/* Card container */
+.cardContainer {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
   margin-top: 20px;
 }
 
-/* Buttons styling */
-.taskDetailsButton {
+/* Individual task card styling */
+.card {
+  width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: #444;
+  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
+  font-family: Arial, sans-serif;
+}
+
+.cardMeta {
+  font-size: 0.875rem;
+  color: #888;
+  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+}
+
+/* Form styling */
+.formContainer {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 20px auto;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formLabel {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 5px;
+  font-family: Arial, sans-serif;
+}
+
+.formInput,
+.formTextarea,
+.formSelect {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.formInput:focus,
+.formTextarea:focus,
+.formSelect:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Dropdown adjustments for Settings */
+.formSelect {
+  display: inline-block;
+  width: auto; /* Adjust to fit the content */
+  min-width: 150px; /* Minimum width for consistency */
+  padding: 5px 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* Button styling */
+.button {
   padding: 10px 20px;
   font-size: 1rem;
   color: #fff;
@@ -582,16 +159,92 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-family: Arial, sans-serif;
 }
 
-.taskDetailsButton:hover {
+.button:hover {
   background-color: #0056b3;
 }
 
-.taskDetailsButtonSecondary {
-  background-color: #6c757d;
+.buttonSecondary {
+  background-color: #28a745;
 }
 
-.taskDetailsButtonSecondary:hover {
-  background-color: #495057;
+.buttonSecondary:hover {
+  background-color: #218838;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+}
+
+/* Dropdowns */
+.dropdownContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  width: 150px; /* Consistent width for dropdown */
+  padding: 5px 0;
+}
+
+.dropdownItem {
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  width: 100%; /* Full width for consistency */
+}
+
+.dropdownItem:hover {
+  background-color: #f1f1f1;
+}
+
+/* Task Details */
+.taskDetailsContainer {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.taskDetailsTitle {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.taskDetailsDescription {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+  padding-left: 15px;
+  border-left: 4px solid #007bff;
+  font-family: Arial, sans-serif;
+}
+
+/* Light and Dark Themes */
+.light {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.dark {
+  background-color: #121212;
+  color: #ffffff;
 }
